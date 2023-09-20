@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Lab3_2doParcial
+build_property.ProjectDir = G:\Mi unidad\Tecnicatura Universitaria en Programación\Laboratorio 3 2023\Proyectos Visual Studio\Lab3_2doParcial\Lab3_2doParcial\
