@@ -150,7 +150,7 @@ class Input
 
         // Separamos los números del input
         string[] numbers = input.Split(new char[] { '+', '-', '*', '/', '(', ')' });
-
+        //REVISAR QUE NO EMPIECE CON */, ELIMINAR + INICIAL
 
         // Más de un punto decimal. Ej: 2.41.3
         foreach (string number in numbers)
@@ -172,7 +172,7 @@ class Input
                 if (number.EndsWith("."))
                 {
                     Console.WriteLine("Error de sintaxis: Punto decimal como final de número" + number + "\nIntente nuevamente\n");
-                    return Input.leerInputValido();
+                    return Input.leerInputValido();//REVISAR. Eliminar el punto.
                 }
             }
         }
