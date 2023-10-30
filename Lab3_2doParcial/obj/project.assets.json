@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\guido\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\guido\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Mi unidad\\Tecnicatura Universitaria en Programación\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\Lab3_2doParcial.csproj",
+      "projectUniqueName": "G:\\Mi unidad\\TUP\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\Lab3_2doParcial.csproj",
       "projectName": "Lab3_2doParcial",
-      "projectPath": "G:\\Mi unidad\\Tecnicatura Universitaria en Programación\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\Lab3_2doParcial.csproj",
+      "projectPath": "G:\\Mi unidad\\TUP\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\Lab3_2doParcial.csproj",
       "packagesPath": "C:\\Users\\guido\\.nuget\\packages\\",
-      "outputPath": "G:\\Mi unidad\\Tecnicatura Universitaria en Programación\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\obj\\",
+      "outputPath": "G:\\Mi unidad\\TUP\\Laboratorio 3 2023\\Proyectos Visual Studio\\Lab3_2doParcial\\Lab3_2doParcial\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\guido\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -66,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -44,32 +44,65 @@ class Input
         // Reemplazar comas por puntos
         input = input.Replace(",", ".");
 
-
-        // Caracteres inválidos. Ej: 4+t
-        foreach (char c in input)
+        // Recorremos el input en busca de validaciones
+        for (int i = 0; i < input.Length - 1; i++)
         {
-            if (!char.IsDigit(c) && c != '.' && c != '(' && c != ')' && c != '+' && c != '-' && c != '*' && c != '/')
+            // Caracteres inválidos. Ej: 4+t
+            if (!char.IsDigit(input[i]) && input[i] != '.' && input[i] != '(' && input[i] != ')' && input[i] != '+' && input[i] != '-' && input[i] != '*' && input[i] != '/')
             {
-                Console.WriteLine("Caracter no válido: " + c + "\nIntente nuevamente\n");
+                Console.WriteLine("Caracter no válido: " + input[i] + "\nIntente nuevamente\n");
+                return Input.leerInputValido();
+            }
+
+            // Conteo de paréntesis
+            int openParentheses = 0;
+            int closeParentheses = 0;
+            if (input[i] == '(')
+            {
+                openParentheses++;
+            }
+            else if (input[i] == ')')
+            {
+                closeParentheses++;
+            }
+
+            // Operadores consecutivos. Ej: +/
+            if ("+-*/".Contains(input[i]) && "+-*/".Contains(input[i + 1]))
+            {
+                Console.WriteLine("Error de sintaxis: Operadores consecutivos " + input[i] + input[i + 1] + "\nIntente nuevamente\n");
+                return Input.leerInputValido();
+            }
+
+            // Operador previo a cierre de paréntesis. Ej: (12+)
+            if ("+-*/".Contains(input[i]) && input[i + 1] == ')')
+            {
+                Console.WriteLine("Error de sintaxis: Operador sin número\nIntente nuevamente\n");
+                return Input.leerInputValido();
+            }
+
+            // Paréntesis vacíos. Ej: ()
+            if (input[i] == '(' && input[i + 1] == ')')
+            {
+                Console.WriteLine("Error de sintaxis: Paréntesis vacío\nIntente nuevamente\n");
+                return Input.leerInputValido();
+            }
+
+            // Agregar símbolo '*' antes o después de paréntesis. Ej: 2(3+1)5
+            if (char.IsDigit(input[i]) && input[i + 1] == '(' || input[i] == ')' && char.IsDigit(input[i + 1]))
+            {
+                input = input.Insert(i + 1, "*");
+                Console.WriteLine("Añadido/s símbolo/s *");
+            }
+
+            // Puntos decimales consecutivos. Ej: 12..3
+            if (input[i] == '.' && input[i + 1] == '.')
+            {
+                Console.WriteLine("Error de sintaxis: Puntos decimales consecutivos\nIntente nuevamente\n");
                 return Input.leerInputValido();
             }
         }
 
-
         // Paridad de paréntesis
-        int openParentheses = 0;
-        int closeParentheses = 0;
-        foreach (char c in input)
-        {
-            if (c == '(')
-            {
-                openParentheses++;
-            }
-            else if (c == ')')
-            {
-                closeParentheses++;
-            }
-        }
         if (openParentheses < closeParentheses) //Ej: 3+(2*4))
         {
             Console.WriteLine("Error de sintaxis: Paréntesis.\nIntente nuevamente\n");
@@ -84,69 +117,12 @@ class Input
             }
         }
 
-
-        // Operadores consecutivos. Ej: +/
-        for (int i = 0; i < input.Length - 1; i++)
-        {
-            if ("+-*/".Contains(input[i]) && "+-*/".Contains(input[i + 1]))
-            {
-                Console.WriteLine("Error de sintaxis: Operadores consecutivos " + input[i] + input[i + 1] + "\nIntente nuevamente\n");
-                return Input.leerInputValido();
-            }
-        }
-
-
         // Input con operador como caracter final
         if (input.EndsWith("+") || input.EndsWith("-") || input.EndsWith("*") || input.EndsWith("/"))
         {
             Console.WriteLine("Error de sintaxis: Operador sin número\nIntente nuevamente\n");
             return Input.leerInputValido();
         }
-
-
-        // Operador previo a cierre de paréntesis. Ej: (12+)
-        for (int i = 0; i < input.Length - 1; i++)
-        {
-            if ("+-*/".Contains(input[i]) && input[i + 1] == ')')
-            {
-                Console.WriteLine("Error de sintaxis: Operador sin número\nIntente nuevamente\n");
-                return Input.leerInputValido();
-            }
-        }
-
-
-        // Paréntesis vacíos. Ej: ()
-        for (int i = 0; i < input.Length - 1; i++)
-        {
-            if (input[i] == '(' && input[i + 1] == ')')
-            {
-                Console.WriteLine("Error de sintaxis: Paréntesis vacío\nIntente nuevamente\n");
-                return Input.leerInputValido();
-            }
-        }
-
-
-        // Agregar símbolo '*' antes o después de paréntesis. Ej: 2(3+1)5
-        for (int i = 0; i < input.Length - 1; i++)
-        {
-            if (char.IsDigit(input[i]) && input[i + 1] == '(' || input[i] == ')' && char.IsDigit(input[i + 1]))
-            {
-                input = input.Insert(i + 1, "*");
-                Console.WriteLine("Añadido/s símbolo/s *");
-            }
-        }
-
-
-        // Puntos decimales consecutivos. Ej: 12..3
-        for (int i = 0; i < input.Length - 1; i++)
-        {
-            if (input[i] == '.' && input[i + 1] == '.')
-            {
-                Console.WriteLine("Error de sintaxis: Puntos decimales consecutivos\nIntente nuevamente\n");
-                return Input.leerInputValido();
-            }
-        }
-
 
         // Separamos los números del input
         string[] numbers = input.Split(new char[] { '+', '-', '*', '/', '(', ')' });
@@ -176,8 +152,6 @@ class Input
                 }
             }
         }
-
-
 
         //TODO CORRECTO
         Console.WriteLine("Valor ingresado correctamente. Input corregido:");
